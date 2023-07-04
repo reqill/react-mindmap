@@ -1,13 +1,20 @@
 {
-  "name": "react-mindmap",
+  "name": "@reqill/react-mindmap",
   "version": "0.0.1",
-  "description": "A react mindmap component",
+  "description": "React component package for visualizing and editing mindmaps",
   "author": "reqill <mikolaj.marcin.mrozek@gmail.com>",
   "private": false,
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "mindmap",
+    "visualization",
+    "editing",
+    "component"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
