@@ -9,6 +9,19 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      checks: write
+      contents:	write
+      deployments: write
+      id-token:	write
+      issues: write
+      packages:	write
+      pages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses:	write
     
     steps:
       - name: Checkout
@@ -29,6 +42,6 @@ jobs:
       - name: Semantic Release
         uses: ./.github/actions/semantic-release
         with:
-          github-token: ${{ secrets.GH_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           npm-token: ${{ secrets.NPM_TOKEN }}
         
