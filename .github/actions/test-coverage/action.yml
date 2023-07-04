@@ -1,0 +1,31 @@
+name: Checks test coverage
+description: Checks test coverage and optionally comment results on PRs
+
+inputs:
+  token:
+    description: 'The GitHub token used to authenticate with the GitHub API'
+    required: true
+
+  coverage-summary-path:
+    description: 'The file where the coverage report is located'
+    required: false
+    default: ./coverage/coverage-summary.json
+
+  coverage-comment:
+    description: 'Whether to comment the coverage results on the PR'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Check test coverage
+      shell: bash
+      run: npm run test:coverage
+
+    - name: Comment coverage results
+      if: ${{ github.event_name == 'pull_request' && inputs.coverage-comment == 'true' }}
+      uses: MishaKav/jest-coverage-comment@main
+      with:
+        github-token: ${{ inputs.token }}
+        coverage-summary-path: ${{ inputs.coverage-summary-path }}

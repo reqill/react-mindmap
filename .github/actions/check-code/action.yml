@@ -1,0 +1,13 @@
+name: Check code for errors
+description: Check code for errors running typescript compiler and linting
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Type Check
+      shell: bash
+      run: npm run type-check
+
+    - name: Lint
+      shell: bash
+      run: npm run lint

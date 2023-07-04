@@ -1,0 +1,26 @@
+name: 'Semantic Release'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node and install dependencies
+        uses: ./.github/actions/setup-node
+
+      - name: Check code for errors
+        uses: ./.github/actions/check-code
+
+      - name: Checks test coverage
+        uses: ./.github/actions/test-coverage
+        with:
+          token: ${{ github.token }}
+          coverage-comment: 'false'
+
+      - name: Semantic Release
+        uses: ./.github/actions/semantic-release

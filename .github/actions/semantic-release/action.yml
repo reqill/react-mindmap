@@ -1,0 +1,12 @@
+name: 'Semantic Release'
+description: 'Handle versioning and CHANGELOG generation'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Semantic Release
+      run: npx semantic-release
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
