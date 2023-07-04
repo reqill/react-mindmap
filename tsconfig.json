@@ -6,7 +6,16 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "types": ["vitest/globals"],
-    // "typeRoots": ["./dist/index.d.ts"], doesn't work with "types" above and without them global types are not found
+    "baseUrl": "./",
+    "paths": {
+      "@hooks/*": ["./src/hooks/*"],
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@types/*": ["src/types/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@constants/*": ["./src/constants/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -25,14 +34,5 @@
   },
   "include": ["src", "index.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "paths": {
-    "@hooks/*": ["./src/hooks/*"],
-    "@components/*": ["./src/components/*"],
-    "@utils/*": ["./src/utils/*"],
-    "@styles/*": ["./src/styles/*"],
-    "@types/*": ["src/types/*"],
-    "@assets/*": ["./src/assets/*"],
-    "@constants/*": ["./src/constants/*"]
-  },
   "rootDir": "./"
 }
