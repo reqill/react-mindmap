@@ -29,6 +29,6 @@ jobs:
       - name: Semantic Release
         uses: ./.github/actions/semantic-release
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GH_PAT }}
           npm-token: ${{ secrets.NPM_TOKEN }}
         
