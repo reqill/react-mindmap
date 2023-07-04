@@ -9,6 +9,8 @@ jobs:
   check-pr-to-main:
     name: Check PR to main branch
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
       - name: Checkout
