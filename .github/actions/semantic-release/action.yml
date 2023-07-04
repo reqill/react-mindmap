@@ -1,6 +1,14 @@
 name: 'Semantic Release'
 description: 'Handle versioning and CHANGELOG generation'
 
+inputs:
+  github-token:
+    description: 'The GitHub token to use for authentication'
+    required: true
+  npm-token:
+    description: 'The npm token to use for authentication'
+    required: true
+
 runs:
   using: 'composite'
   steps:
@@ -8,5 +16,5 @@ runs:
       run: npx semantic-release
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        NPM_TOKEN: ${{ inputs.npm-token }}
