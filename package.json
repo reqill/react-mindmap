@@ -1,6 +1,6 @@
 {
   "name": "@reqill/react-mindmap",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React component package for visualizing and editing mindmaps",
   "author": "reqill <mikolaj.marcin.mrozek@gmail.com>",
   "private": false,
